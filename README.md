@@ -6,7 +6,7 @@ The experimental replication focuses on the four-player linear public-goods game
 
 ## Python Code Sample — Start Here
 
-**[Open the Python replication notebook →](replication_python.ipynb)**
+**[Open the Python replication notebook →](code/python/00_replication.ipynb)**
 
 The notebook walks through experimental-data validation, variable construction, treatment comparisons, and Figures 4A–4C using pandas, NumPy, SciPy, and Matplotlib. It starts from player-round data and constructs group-level outcomes for the four-player linear public-goods game. Figure 4D is currently available only in R.
 
@@ -14,8 +14,8 @@ The notebook walks through experimental-data validation, variable construction, 
 
 | Component | Entry point | Coverage |
 | --- | --- | --- |
-| **Python experimental replication — start here** | **[replication_python.ipynb](replication_python.ipynb)** | Data checks, contribution/payoff/surplus construction, treatment comparisons, Figures 4A–4C |
-| R experimental replication | [R/00_run_all.R](R/00_run_all.R) | Experimental replication, Figures 4A–4D |
+| **Python experimental replication — start here** | **[code/python/00_replication.ipynb](code/python/00_replication.ipynb)** | Data checks, contribution/payoff/surplus construction, treatment comparisons, Figures 4A–4C |
+| R experimental replication | [code/r/00_run_all.R](code/r/00_run_all.R) | Experimental replication, Figures 4A–4D |
 | Python simulation extension | [abm_extension/README.md](abm_extension/README.md) | Separate agent-based model, comparisons, and limitations |
 
 ## Current Progress
@@ -30,9 +30,11 @@ The project is still in progress. Producing the figures does not mean that every
 
 ## Repository Structure
 
-- **[replication_python.ipynb](replication_python.ipynb)**: main Python experimental-replication notebook; start here to review the code.
+Main replication code is grouped by language under [`code/`](code/README.md). Files use lowercase snake_case names and two-digit prefixes to indicate execution order. The ABM extension remains a separate runnable project.
+
+- **[code/python/00_replication.ipynb](code/python/00_replication.ipynb)**: main Python experimental-replication notebook; start here to review the code.
 - `figures/python/`: Python replication figures (4A–4C).
-- `R/`: R experimental-replication scripts (4A–4D).
+- `code/r/`: R experimental-replication scripts (4A–4D).
   - `00_run_all.R`: runs the R scripts in order.
   - `01_import.R`: imports and checks the data.
   - `02_derive_variables.R`: constructs analysis variables.
@@ -59,7 +61,7 @@ The replication scripts read the prepared CSV. They do not convert the authors' 
 
 The notebook uses pandas, NumPy, Matplotlib, and SciPy.
 
-Open `replication_python.ipynb` in a Jupyter-compatible environment with the repository root as the current working directory. Restart the kernel and run all cells in order.
+Open `code/python/00_replication.ipynb` in a Jupyter-compatible environment with the repository root or the notebook directory as the current working directory. The notebook locates the repository root automatically and saves figures under the root `figures/python/` directory. Restart the kernel and run all cells in order.
 
 The notebook saves:
 
@@ -71,7 +73,13 @@ The notebook saves:
 
 The R replication uses `ggplot2`.
 
-Run the scripts from the repository root, starting with `R/00_run_all.R`. Data paths should be relative to the repository root.
+Run from the repository root:
+
+```sh
+Rscript code/r/00_run_all.R
+```
+
+In RStudio, open the root `.Rproj` file and run `source("code/r/00_run_all.R")`. Data and output paths are relative to the repository root.
 
 ## Python Replication Notes
 

@@ -13,9 +13,9 @@ This project reconstructs a repeated four-player public-goods experiment and exa
 - Partially replicated key Figure 4 treatment-level patterns for average contribution, surplus, and payoff inequality.
 
 ## Repository Structure
-- `R/01_import.R`: imports raw data and performs raw-data integrity checks.
-- `R/02_derive_variables.R`: constructs player-level and group-level analysis variables.
-- `R/03_replication.R`: produces treatment summaries, method-sensitivity checks, and replication figures.
+- `code/r/01_import.R`: imports raw data and performs raw-data integrity checks.
+- `code/r/02_derive_variables.R`: constructs player-level and group-level analysis variables.
+- `code/r/03_replication.R`: produces treatment summaries, method-sensitivity checks, and replication figures.
 - `figures/`: stores replication figures.
 - `data/`: contains data notes.
 
