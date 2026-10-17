@@ -18,6 +18,12 @@ The notebook walks through experimental-data validation, variable construction, 
 | R experimental replication | [code/r/00_run_all.R](code/r/00_run_all.R) | Experimental replication, Figures 4A–4D |
 | Python simulation extension | [abm_extension/README.md](abm_extension/README.md) | Separate agent-based model, comparisons, and limitations |
 
+## Example output
+
+![Python replication: average group relative contribution](figures/python/figure_4a.png)
+
+A saved Figure 4A replication output. See the methodology notes below for the confidence-interval and inference limitations.
+
 ## Current Progress
 
 - Imported a dataset with 12,480 player-round observations.
