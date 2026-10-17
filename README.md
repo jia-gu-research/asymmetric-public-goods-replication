@@ -4,6 +4,20 @@ This repository contains an ongoing replication and extension of Wang, Hilbe, an
 
 The experimental replication focuses on the four-player linear public-goods game and compares three treatments: full equality (FE), aligned inequality (AI), and misaligned inequality (MI).
 
+## Python Code Sample — Start Here
+
+**[Open the Python replication notebook →](replication_python.ipynb)**
+
+The notebook walks through experimental-data validation, variable construction, treatment comparisons, and Figures 4A–4C using pandas, NumPy, SciPy, and Matplotlib. It starts from player-round data and constructs group-level outcomes for the four-player linear public-goods game. Figure 4D is currently available only in R.
+
+### Project Navigation
+
+| Component | Entry point | Coverage |
+| --- | --- | --- |
+| **Python experimental replication — start here** | **[replication_python.ipynb](replication_python.ipynb)** | Data checks, contribution/payoff/surplus construction, treatment comparisons, Figures 4A–4C |
+| R experimental replication | [R/00_run_all.R](R/00_run_all.R) | Experimental replication, Figures 4A–4D |
+| Python simulation extension | [abm_extension/README.md](abm_extension/README.md) | Separate agent-based model, comparisons, and limitations |
+
 ## Current Progress
 
 - Imported a dataset with 12,480 player-round observations.
@@ -16,15 +30,16 @@ The project is still in progress. Producing the figures does not mean that every
 
 ## Repository Structure
 
-- `R/00_run_all.R`: runs the R scripts in order.
-- `R/01_import.R`: imports and checks the data.
-- `R/02_derive_variables.R`: constructs analysis variables.
-- `R/03_replication.R`: runs comparisons and produces figures.
-- `replication_python.ipynb`: Python replication notebook.
+- **[replication_python.ipynb](replication_python.ipynb)**: main Python experimental-replication notebook; start here to review the code.
+- `figures/python/`: Python replication figures (4A–4C).
+- `R/`: R experimental-replication scripts (4A–4D).
+  - `00_run_all.R`: runs the R scripts in order.
+  - `01_import.R`: imports and checks the data.
+  - `02_derive_variables.R`: constructs analysis variables.
+  - `03_replication.R`: runs comparisons and produces figures.
 - `figures/`: R replication figures.
-- `figures/python/`: Python replication figures.
 - `data/`: local data and data source notes.
-- `abm_extension/`: a separate agent-based modeling extension.
+- `abm_extension/`: separate Python agent-based modeling extension and R comparison.
 
 ## Data
 
@@ -40,12 +55,6 @@ The replication scripts read the prepared CSV. They do not convert the authors' 
 
 ## Running the Replication
 
-### R
-
-The R replication uses `ggplot2`.
-
-Run the scripts from the repository root, starting with `R/00_run_all.R`. Data paths should be relative to the repository root.
-
 ### Python
 
 The notebook uses pandas, NumPy, Matplotlib, and SciPy.
@@ -57,6 +66,12 @@ The notebook saves:
 - `figures/python/figure_4a.png`: average group relative contribution.
 - `figures/python/figure_4b.png`: group relative contribution across rounds.
 - `figures/python/figure_4c.png`: overall surplus.
+
+### R
+
+The R replication uses `ggplot2`.
+
+Run the scripts from the repository root, starting with `R/00_run_all.R`. Data paths should be relative to the repository root.
 
 ## Python Replication Notes
 
