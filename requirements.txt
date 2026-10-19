@@ -1,0 +1,6 @@
+# Versions used to validate the Python replication and MATLAB conversion.
+numpy==2.3.5
+pandas==2.2.3
+scipy==1.17.0
+matplotlib==3.10.8
+jupyterlab>=4,<5

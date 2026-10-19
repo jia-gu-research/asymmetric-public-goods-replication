@@ -6,7 +6,7 @@ The experimental replication focuses on the four-player linear public-goods game
 
 ## Python Code Sample — Start Here
 
-**[Open the Python replication notebook →](code/python/00_replication.ipynb)**
+**[Open the Python replication notebook →](code_python/00_replication.ipynb)**
 
 The notebook walks through experimental-data validation, variable construction, treatment comparisons, and Figures 4A–4C using pandas, NumPy, SciPy, and Matplotlib. It starts from player-round data and constructs group-level outcomes for the four-player linear public-goods game. Figure 4D is currently available only in R.
 
@@ -14,8 +14,8 @@ The notebook walks through experimental-data validation, variable construction, 
 
 | Component | Entry point | Coverage |
 | --- | --- | --- |
-| **Python experimental replication — start here** | **[code/python/00_replication.ipynb](code/python/00_replication.ipynb)** | Data checks, contribution/payoff/surplus construction, treatment comparisons, Figures 4A–4C |
-| R experimental replication | [code/r/00_run_all.R](code/r/00_run_all.R) | Experimental replication, Figures 4A–4D |
+| **Python experimental replication — start here** | **[code_python/00_replication.ipynb](code_python/00_replication.ipynb)** | Data checks, contribution/payoff/surplus construction, treatment comparisons, Figures 4A–4C |
+| R experimental replication | [code_R/00_run_all.R](code_R/00_run_all.R) | Experimental replication, Figures 4A–4D |
 | Python simulation extension | [abm_extension/README.md](abm_extension/README.md) | Separate agent-based model, comparisons, and limitations |
 
 ## Example output
@@ -27,7 +27,7 @@ A saved Figure 4A replication output. See the methodology notes below for the co
 ## Current Progress
 
 - Imported a dataset with 12,480 player-round observations.
-- Checked missing values, duplicate records, group size, player roster, round completeness, and contribution bounds.
+- Checked missing values, duplicate records, group size, player roster, round completeness, and contribution bounds. In Python, key checks stop execution on failure and merges validate their cardinality.
 - Constructed contribution, payoff, and surplus measures.
 - Produced Figures 4A–4D in R.
 - Produced Figures 4A–4C in Python. Figure 4D is not included in Python yet.
@@ -36,11 +36,11 @@ The project is still in progress. Producing the figures does not mean that every
 
 ## Repository Structure
 
-Main replication code is grouped by language under [`code/`](code/README.md). Files use lowercase snake_case names and two-digit prefixes to indicate execution order. The ABM extension remains a separate runnable project.
+Python and R replication code are in `code_python/` and `code_R/`. Prepare the data with `code_python/01_prepare_data.py` before running the Python notebook. The R entry point runs its numbered scripts in order. The ABM extension remains a separate runnable project.
 
-- **[code/python/00_replication.ipynb](code/python/00_replication.ipynb)**: main Python experimental-replication notebook; start here to review the code.
+- **[code_python/00_replication.ipynb](code_python/00_replication.ipynb)**: main Python experimental-replication notebook; start here to review the code.
 - `figures/python/`: Python replication figures (4A–4C).
-- `code/r/`: R experimental-replication scripts (4A–4D).
+- `code_R/`: R experimental-replication scripts (4A–4D).
   - `00_run_all.R`: runs the R scripts in order.
   - `01_import.R`: imports and checks the data.
   - `02_derive_variables.R`: constructs analysis variables.
@@ -59,15 +59,15 @@ The CSV should contain:
 
 `Treatment`, `Session`, `GroupID`, `PlayerID`, `GlobalPlayerID`, `Round`, and `Contribution`.
 
-The replication scripts read the prepared CSV. They do not convert the authors' original MATLAB file to CSV.
+Run the checksum-verified [MATLAB-to-CSV converter](code_python/01_prepare_data.py) once to prepare the input. See [data preparation instructions](data/README.md) for the download and conversion commands.
 
 ## Running the Replication
 
 ### Python
 
-The notebook uses pandas, NumPy, Matplotlib, and SciPy.
+Install the Python environment with `python -m pip install -r requirements.txt`, then follow [the data preparation instructions](data/README.md). The notebook uses pandas, NumPy, Matplotlib, and SciPy.
 
-Open `code/python/00_replication.ipynb` in a Jupyter-compatible environment with the repository root or the notebook directory as the current working directory. The notebook locates the repository root automatically and saves figures under the root `figures/python/` directory. Restart the kernel and run all cells in order.
+Open `code_python/00_replication.ipynb` in a Jupyter-compatible environment with the repository root or the notebook directory as the current working directory. The notebook locates the repository root automatically and saves figures under the root `figures/python/` directory. Restart the kernel and run all cells in order.
 
 The notebook saves:
 
@@ -82,10 +82,10 @@ The R replication uses `ggplot2`.
 Run from the repository root:
 
 ```sh
-Rscript code/r/00_run_all.R
+Rscript code_R/00_run_all.R
 ```
 
-In RStudio, open the root `.Rproj` file and run `source("code/r/00_run_all.R")`. Data and output paths are relative to the repository root.
+In RStudio, open the root `.Rproj` file and run `source("code_R/00_run_all.R")`. Data and output paths are relative to the repository root.
 
 ## Python Replication Notes
 
